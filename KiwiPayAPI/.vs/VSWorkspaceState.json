@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Application\\Services",
+    "\\Core\\Entities",
+    "\\Presentation\\Controllers",
+    "\\Presentation\\Controllers\\Dtos"
+  ],
+  "PreviewInSolutionExplorer": false
+}
