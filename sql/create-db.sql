@@ -1,0 +1,30 @@
+CREATE DATABASE KiwiPayDB;
+GO
+USE KiwiPayDB;
+GO
+
+CREATE TABLE Clientes (
+    ClienteId INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre NVARCHAR(100) NOT NULL,
+    Apellido NVARCHAR(100) NOT NULL,
+    DNI NVARCHAR(20) UNIQUE NOT NULL,
+    FechaRegistro DATETIME DEFAULT GETDATE()
+);
+
+CREATE TABLE Cuentas (
+    CuentaId INT IDENTITY(1,1) PRIMARY KEY,
+    ClienteId INT NOT NULL,
+    NumeroCuenta NVARCHAR(20) UNIQUE NOT NULL,
+    Saldo DECIMAL(18,2) DEFAULT 0,
+    Estado BIT DEFAULT 1,
+    FOREIGN KEY (ClienteId) REFERENCES Clientes(ClienteId)
+);
+
+CREATE TABLE Transacciones (
+    TransaccionId INT IDENTITY(1,1) PRIMARY KEY,
+    CuentaId INT NOT NULL,
+    Tipo INT NOT NULL CHECK (Tipo IN (1, 2)),
+    Monto DECIMAL(18,2) NOT NULL,
+    Fecha DATETIME DEFAULT GETDATE(),
+    FOREIGN KEY (CuentaId) REFERENCES Cuentas(CuentaId)
+);
