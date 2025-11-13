@@ -1,0 +1,16 @@
+<div>
+  <h2>Transacciones</h2>
+  <div class="form-row"><label>Cuenta ID</label><input [(ngModel)]="cuentaId" type="number" /></div>
+  <div class="form-row"><label>Tipo</label>
+    <select [(ngModel)]="tipo">
+      <option value="Deposito">Depósito</option>
+      <option value="Retiro">Retiro</option>
+    </select>
+  </div>
+  <div class="form-row"><label>Monto</label><input [(ngModel)]="monto" type="number" /></div>
+
+  <div style="color:green" *ngIf="success">{{success}}</div>
+  <div style="color:red" *ngIf="error">{{error}}</div>
+
+  <button (click)="submit()">Enviar</button>
+</div>

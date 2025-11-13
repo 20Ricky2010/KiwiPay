@@ -1,0 +1,21 @@
+<div>
+  <h2>Clientes</h2>
+  <button (click)="crear()">Nuevo cliente</button>
+  <div *ngIf="error" style="color:red">{{error}}</div>
+  <table *ngIf="clientes.length">
+    <thead><tr><th>ID</th><th>Nombre</th><th>Apellido</th><th>DNI</th><th>Acciones</th></tr></thead>
+    <tbody>
+      <tr *ngFor="let c of clientes">
+        <td>{{c.clienteId}}</td>
+        <td>{{c.nombre}}</td>
+        <td>{{c.apellido}}</td>
+        <td>{{c.dni}}</td>
+        <td>
+          <button (click)="editar(c.clienteId)">Editar</button>
+          <button (click)="borrar(c.clienteId)">Borrar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="!clientes.length">No hay clientes.</div>
+</div>

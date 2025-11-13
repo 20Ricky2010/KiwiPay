@@ -1,0 +1,13 @@
+<div>
+  <h2 *ngIf="!editingId">Nuevo Cliente</h2>
+  <h2 *ngIf="editingId">Editar Cliente</h2>
+
+  <div class="form-row"><label>Nombre</label><input [(ngModel)]="cliente.nombre" /></div>
+  <div class="form-row"><label>Apellido</label><input [(ngModel)]="cliente.apellido" /></div>
+  <div class="form-row"><label>DNI</label><input [(ngModel)]="cliente.dni" /></div>
+
+  <div style="color:red" *ngIf="error">{{error}}</div>
+
+  <button (click)="save()">Guardar</button>
+  <button (click)="router.navigate(['/clientes'])">Cancelar</button>
+</div>
